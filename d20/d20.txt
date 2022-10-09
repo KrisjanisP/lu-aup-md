@@ -10,10 +10,10 @@ Klases dati pēc noklusēšanas ir slēpti (private), bet metodes atklātas (pub
 kāda tika prasīta iepriekšējos trīs uzdevumos (main funkciju drīkst “cieti” iekodēt).
 Citas prasības sk. Laboratorijas darbu noteikumos.
 
-D20. "Izveidot klasi ""Datums"" - Date, kurā tiek glabāti trīs skaitļi - gads, mēnesis, datums.
+D20. Izveidot klasi ""Datums"" - Date, kurā tiek glabāti trīs skaitļi - gads, mēnesis, datums.
 Klasei izveidot šādas metodes:
     (1) konstruktors, ar kuru tiek padotas sākotnējās vērtības,
     (2) destruktors, kurš paziņo par objekta likvidēšanu,
     (3) metode ""Mainīt"" - change ar trīs parametriem, kas uzstāda jaunās vērtības,
     (4) metode ""Drukāt"" - print, kas izdrukā datumu,
-    (5) metode ""Aprēķināt"" - calculate, kas izdrukā dotā datuma nedēļas dienu."
+    (5) metode ""Aprēķināt"" - calculate, kas izdrukā dotā datuma nedēļas dienu.

@@ -1,6 +1,11 @@
-./bin/c37.out: c37.cpp
-	g++ -o $@ -I ./include ./lib/fort.c c37.cpp
+SRCDIR = ./src
+SRCS = $(SRCDIR)/program.cpp $(SRCDIR)/main.cpp
+BINDIR = ./bin
+TARGET = $(BINDIR)/d20.out
 
-run: ./bin/c37.out
+$(TARGET): $(SRCS)
+	g++ -o $@ $(SRCS)
+
+run: $(TARGET)
 	clear
-	gnome-terminal --window --maximize -- fish -c "./bin/c37.out && read -P \"Press any key to continue...\""
+	gnome-terminal -- fish -c "$(TARGET) && read -P \"Press any key to continue...\""

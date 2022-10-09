@@ -1,0 +1,21 @@
+=== A29 =======================================
+
+Izveidot programmu gan C++, gan Python.
+Ievadot loģiski nepareizus datus, programmai jāizdod atbilstošs paziņojums. Jābūt iespējai programmu izpildīt atkārtoti. Atrādot programmu, jāatrāda:
+  a) programmas teksts,  
+  b) testa piemēri,  
+  c) programma darbībā.
+Precīzākas prasības sk. Laboratorijas darbu noteikumos.
+
+A29. Doti divi naturāli skaitļi. Atrast visus abu skaitļu kopīgus dalītājus.
+
+
+A, B    ->  Sagaidāmais rezultāts
+
+-1, 1   ->  "Kļūda! Ievadītais skaitlis nav naturāls."
+1,  -1  ->  "Kļūda! Ievadītais skaitlis nav naturāls."
+-10,-10 ->  "Kļūda! Ievadītais skaitlis nav naturāls."
+30, 60  ->  "Kopīgie dalītāji: -30 -15 -10 -6 -5 -3 -2 -1 1 2 3 5 6 10 15 30"
+8, 8    ->  "Kopīgie dalītāji: -8 -4 -2 -1 1 2 4 8"
+18446744073709551615, 5 -> "Kopīgie dalītāji: -5 -1 1 5"
+18446744073709551616, 5 -> "Kļūda! Ievadītais skaitlis ir pārāk liels."

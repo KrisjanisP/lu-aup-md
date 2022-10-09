@@ -1,0 +1,14 @@
+=== B14 =======================================
+
+Izveidot programmu gan C++, gan Python, obligāti izmantojot norādītās vai kādas citas funkcijas.
+Prasības tādas pašas kā iepriekšējā uzdevumā, precīzāk sk. Laboratorijas darbu noteikumos.
+
+B14. Dots naturāls skaitlis n. Noskaidrot, vai n! var izteikt kā trīs pēc kārtas ņemtu skaitļu reizinājumu. Risinājumā izmantot funkciju, kas aprēķina faktoriālu.
+
+
+N ->  Sagaidāmais rezultāts
+
+-1 -> "Kļūda! Ievadītais skaitlis nav naturāls."
+0 -> "Kļūda! Ievadītais skaitlis nav naturāls."
+1 -> "Faktoriāli NEVAR izteikt ka trīs secīgu skaitļu reizinājumu."
+3 -> "Faktoriāli VAR izteikt kā 1,2,3 reizinājumu."

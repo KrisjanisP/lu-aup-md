@@ -12,6 +12,7 @@ public:
     ~Datums();
     void Drukāt();
     void Mainīt(int diena, int mēnesis, int gads);
+    int Aprēķināt();
 };
 
 #endif

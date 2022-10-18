@@ -62,6 +62,5 @@ int Datums::Aprēķināt()
         if(d>dm) d=1,m++;
         if(m>12) m=1,y++;
     }
-    printf("%d %d %d\n",d,m,y);
     return ((r-1)%7)+1;
 }

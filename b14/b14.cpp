@@ -96,30 +96,32 @@ int main() {
     cout<<endl;
 
 
-    bool proceed = true;
+    bool turpināt = true;
     do
     {
         int x = query_natural();
 
         ull f = factorial(x);
-        bool can_represent = false;
-        int represent_start = 0;
+        bool var_izteikt = false; // true, ja var izteikt, false, ja nevar
+        int sākums = 0; // secīgo skaitļu reizinājuma sākums
         for(int i=1;(i)*(i+1)*(i+2)<=f;i++)
             if((i)*(i+1)*(i+2)==f)
-                represent_start = i,
-                can_represent = true;
+                sākums = i,
+                var_izteikt = true;
 
-        if(can_represent) {
+        if(var_izteikt) {
+            // pārvēršam trīs secīgos skaitļus uz string
             stringstream ss;
-            ss<<represent_start<<", ";
-            ss<<represent_start+1<<", ";
-            ss<<represent_start+2<<" ";
+            ss<<sākums<<", ";
+            ss<<sākums+1<<", ";
+            ss<<sākums+2<<" ";
+
             print_success("Faktoriāli VAR izteikt kā "+ss.str()+"reizinājumu.");
         }else {
             print_error("Faktoriāli NEVAR izteikt ka trīs secīgu skaitļu reizinājumu.");
         }
 
-        proceed = query_to_proceed();
+        turpināt = query_to_proceed();
  
-    } while (proceed);
+    } while (turpināt);
 }

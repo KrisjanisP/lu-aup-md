@@ -4,7 +4,7 @@
 using namespace std;
 
 int main(){
-    Datums datums(18,10,2022); // diena, mēnesis, datums
+    Datums datums(1,1,1970); // diena, mēnesis, datums
 
     datums.Drukāt();
 

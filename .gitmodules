@@ -1,6 +1,3 @@
-[submodule "c37/libfort"]
-	path = c37/libfort
-	url = https://github.com/seleznevae/libfort.git
 [submodule "c37/external/libfort"]
 	path = c37/external/libfort
 	url = https://github.com/seleznevae/libfort.git

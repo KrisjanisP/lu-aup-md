@@ -38,7 +38,7 @@ bool is_natural(string number)
 /// Atgriež TRUE, ja lietotājs vēlas turpināt, un FALSE, ja nevēlas.
 bool query_to_proceed()
 {
-    cout<<"Vai turpināt (1), vai beigt (0)?"<<endl;
+    cout<<"Vai turpināt (1), vai beigt (0)? ";
     string response;
     cin>>response;
     if(response!="1"&&response!="0")
@@ -55,7 +55,7 @@ bool query_to_proceed()
  */
 int query_natural()
 {
-    cout << "Lūdzu, ievadiet naturālu skaitli (n)!"<<endl;
+    cout << "Lūdzu, ievadiet naturālu skaitli (n)! ";
     
     string x_str;
     cin>>x_str;
@@ -102,8 +102,11 @@ int main() {
         int x = query_natural();
 
         ull f = factorial(x);
-        bool var_izteikt = false; // true, ja var izteikt, false, ja nevar
+        cout<<"Faktoriāļa n! vērtība: "<<f<<endl;
+
+        bool var_izteikt = false;
         int sākums = 0; // secīgo skaitļu reizinājuma sākums
+        // var pierādīt, ka (var_izteikt -> sakums>0)
         for(int i=1;(i)*(i+1)*(i+2)<=f;i++)
             if((i)*(i+1)*(i+2)==f)
                 sākums = i,
@@ -112,13 +115,11 @@ int main() {
         if(var_izteikt) {
             // pārvēršam trīs secīgos skaitļus uz string
             stringstream ss;
-            ss<<sākums<<", ";
-            ss<<sākums+1<<", ";
-            ss<<sākums+2<<" ";
+            ss<<sākums<<", "<<sākums+1<<", "<<sākums+2<<" ";
 
-            print_success("Faktoriāli VAR izteikt kā "+ss.str()+"reizinājumu.");
+            print_success("Faktoriāli n! VAR izteikt kā "+ss.str()+"reizinājumu.");
         }else {
-            print_error("Faktoriāli NEVAR izteikt ka trīs secīgu skaitļu reizinājumu.");
+            print_error("Faktoriāli n! NEVAR izteikt ka trīs secīgu skaitļu reizinājumu.");
         }
 
         turpināt = query_to_proceed();

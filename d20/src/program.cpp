@@ -20,7 +20,7 @@ void Datums::Drukāt()
 void Datums::Mainīt(int diena, int mēnesis, int gads)
 {
     this->diena = diena;
-    this->diena = mēnesis;
+    this->mēnesis = mēnesis;
     this->gads = gads;
 }
 

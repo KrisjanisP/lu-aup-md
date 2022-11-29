@@ -3,7 +3,7 @@
 Izveidot programmu valodā C++, izmantojot objektorientētās programmēšanas līdzekļus
 un strukturējot programmu vismaz trīs failos.
 Klases hederi obligāti novietot atsevišķā hedera failā (program.h).
-Visas metodes realizēt ārpus hedera faila – speciālā C++ failā (program.cpp).
+Visas metodes realizēt ārpus hedera faila - speciālā C++ failā (program.cpp).
 Funkcija main ievietojama vēl citā C++ failā (main.cpp).
 Klases dati pēc noklusēšanas ir slēpti (private), bet metodes atklātas (public).
 Šīs programmas ietvaros NAV obligāti jānodrošina tāda lietotāja saskarne,

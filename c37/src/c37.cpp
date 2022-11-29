@@ -3,15 +3,17 @@
 
 using namespace std;
 
+// noformatē veselu skaitli x par heksadecimālu divciparu skaitli
 string hex_format(int x) {
     string res = "  ";
 
-    int a = x/16, b = x%16;
+    int a = x/16, b = x%16; // iegūst pirmo un pēdējo ciparu
 
     if(a){
         if(a>=10) res[0]=a-10+'A';
         else res[0]=a+'0';
     }
+    // ja rezultāts nesatur divus ciparus, tam priekšā pieliek atstarpi
 
     if(b>=10) res[1]=b-10+'A';
     else res[1]=b+'0';

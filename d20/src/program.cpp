@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <iostream>
 #include "program.hpp"
 
 Datums::Datums(int diena, int mēnesis, int gads):
@@ -24,11 +25,11 @@ void Datums::Mainīt(int diena, int mēnesis, int gads)
     this->gads = gads;
 }
 
-bool ir_garais(int gads){
+bool irGarais(int gads){
     return (gads % 4 == 0 && gads % 100 != 0) || gads % 400 == 0;
 }
 
-int dienas_mēnesī(int mēnesis, int gads)
+int dienasMēnesī(int mēnesis, int gads)
 {
     // dienu skaits katrā mēnesī īsajā gadā
     int mēneši[12]={
@@ -41,13 +42,26 @@ int dienas_mēnesī(int mēnesis, int gads)
     };
     
     // garā gada februārī ir 29 dienas
-    if(ir_garais(gads)) mēneši[1]=29;
+    if(irGarais(gads)) mēneši[1]=29;
 
     return mēneši[mēnesis-1];
 }
 
+std::string nedēļasDienasNosaukums(int diena) {
+    switch (diena) {
+        case 1: return "pirmdiena";
+        case 2: return "otrdiena";
+        case 3: return "trešdiena";
+        case 4: return "ceturtdiena";
+        case 5: return "piektdiena";
+        case 6: return "sestdiena";
+        case 7: return "svētdiena";
+    }
+    return "?";
+}
+
 // rēķina pēc Gregora kalendāra
-int Datums::Aprēķināt()
+void Datums::Aprēķināt()
 {
     // ejam pa vienai dienai uz priekšu sākot
     // no 1582. gada 15. oktobra mūsu ērā, kas bija piektdiena,
@@ -58,9 +72,11 @@ int Datums::Aprēķināt()
     while(y<gads||m<mēnesis||d<diena)
     {
         d++, r++;
-        int dm = dienas_mēnesī(m,y);
+        int dm = dienasMēnesī(m,y);
         if(d>dm) d=1,m++;
         if(m>12) m=1,y++;
     }
-    return ((r-1)%7)+1;
+
+    int res = ((r-1)%7)+1;
+    printf("Nedēļas diena: %s.\n", nedēļasDienasNosaukums(res).c_str());
 }

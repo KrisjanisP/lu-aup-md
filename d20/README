@@ -17,7 +17,3 @@ Klasei izveidot šādas metodes:
     (3) metode ""Mainīt"" - change ar trīs parametriem, kas uzstāda jaunās vērtības,
     (4) metode ""Drukāt"" - print, kas izdrukā datumu,
     (5) metode ""Aprēķināt"" - calculate, kas izdrukā dotā datuma nedēļas dienu.
-
-
-18.10.2022 ir otrdiena
-1.1.1970 ir ceturtdiena

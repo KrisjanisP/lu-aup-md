@@ -12,7 +12,7 @@ public:
     ~Datums();
     void Drukāt();
     void Mainīt(int diena, int mēnesis, int gads);
-    int Aprēķināt();
+    void Aprēķināt();
 };
 
 #endif

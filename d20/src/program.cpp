@@ -7,9 +7,7 @@ Datums::Datums(int diena, int mēnesis, int gads):
     diena(diena),
     mēnesis(mēnesis),
     gads(gads)
-{
-    assert(gads>1582);
-}
+{}
 
 Datums::~Datums()
 {
@@ -23,7 +21,6 @@ void Datums::Drukāt()
 
 void Datums::Mainīt(int diena, int mēnesis, int gads)
 {
-    assert(gads>1582);
     this->diena = diena;
     this->mēnesis = mēnesis;
     this->gads = gads;
@@ -67,6 +64,10 @@ std::string nedēļasDienasNosaukums(int diena) {
 // rēķina pēc Gregora kalendāra
 void Datums::Aprēķināt()
 {
+    if(gads<1583) {
+        printf("Programma atbalsta datumus sākot no 1583. gada.\n");
+        return;
+    }
     // ejam pa vienai dienai uz priekšu sākot
     // no 1582. gada 15. oktobra mūsu ērā, kas bija piektdiena,
     // un, uzturot nedēļas dienu,

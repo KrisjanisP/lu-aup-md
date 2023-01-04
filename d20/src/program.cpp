@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include <iostream>
+#include <cassert>
 #include "program.hpp"
 
 Datums::Datums(int diena, int mēnesis, int gads):
     diena(diena),
     mēnesis(mēnesis),
     gads(gads)
-{}
+{
+    assert(gads>1582);
+}
 
 Datums::~Datums()
 {
@@ -20,6 +23,7 @@ void Datums::Drukāt()
 
 void Datums::Mainīt(int diena, int mēnesis, int gads)
 {
+    assert(gads>1582);
     this->diena = diena;
     this->mēnesis = mēnesis;
     this->gads = gads;

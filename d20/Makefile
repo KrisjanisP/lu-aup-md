@@ -8,4 +8,4 @@ $(TARGET): $(SRCS)
 
 run: $(TARGET)
 	clear
-	gnome-terminal -- fish -c "$(TARGET) && read -P \"Press any key to continue...\""
+	@$(TARGET)

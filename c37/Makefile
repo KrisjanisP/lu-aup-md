@@ -1,6 +1,23 @@
-./bin/c37.out: c37.cpp
-	g++ -o $@ -I ./include ./lib/fort.c c37.cpp
+EXT = external
+SRC = src
+BDIR = build
 
-run: ./bin/c37.out
+$(shell mkdir -p $(BDIR))
+
+CXX = g++
+CXXFLAGS = -I ./include
+
+OBJS = $(BDIR)/fort.o $(BDIR)/c37.o
+
+$(BDIR)/c37: $(OBJS)
+	$(CXX) -o $@ $(CXXFLAGS) $(OBJS)
+
+$(BDIR)/fort.o: $(EXT)/libfort/lib/fort.c
+	$(CXX) $(CXXFLAGS) -c $^ -o $@
+
+$(BDIR)/c37.o: $(SRC)/c37.cpp
+	$(CXX) $(CXXFLAGS) -c $(SRC)/c37.cpp -o $@
+
+run: $(BDIR)/c37
 	clear
-	gnome-terminal --window --maximize -- fish -c "./bin/c37.out && read -P \"Press any key to continue...\""
+	gnome-terminal --window --maximize -- bash -c "$^ && read -p \"Press enter to continue\""

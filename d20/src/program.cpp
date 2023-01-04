@@ -20,46 +20,47 @@ void Datums::Drukāt()
 void Datums::Mainīt(int diena, int mēnesis, int gads)
 {
     this->diena = diena;
-    this->diena = mēnesis;
+    this->mēnesis = mēnesis;
     this->gads = gads;
 }
 
-bool ir_garais(int year){
-    if(year%4) return false;
-    if(year%100) return false;
-    if(year%400) return false;
-    return true;
+bool ir_garais(int gads){
+    return (gads % 4 == 0 && gads % 100 != 0) || gads % 400 == 0;
 }
 
+int dienas_mēnesī(int mēnesis, int gads)
+{
+    // dienu skaits katrā mēnesī īsajā gadā
+    int mēneši[12]={
+        31, /* 1. */ 28, /* 2. */
+        31, /* 3. */ 30, /* 4. */
+        31, /* 5. */ 30, /* 6. */
+        31, /* 7. */ 31, /* 8. */
+        30, /* 9. */ 31, /* 10 */
+        30, /* 11 */ 31  /* 12 */
+    };
+    
+    // garā gada februārī ir 29 dienas
+    if(ir_garais(gads)) mēneši[1]=29;
+
+    return mēneši[mēnesis-1];
+}
+
+// rēķina pēc Gregora kalendāra
 int Datums::Aprēķināt()
 {
-    // normal year, leap year
-    int mēneši[12][2]={
-        {31,31}, // 1.
-        {28,29}, // 2.
-        {31,31}, // 3.
-        {30,30}, // 4.
-        {31,31}, // 5.
-        {30,30}, // 6.
-        {31,31}, // 7.
-        {31,31}, // 8.
-        {30,30}, // 9.
-        {31,31}, // 10.
-        {30,30}, // 11.
-        {31,31}, // 12.
-    };
-
-    int d=1,m=1,y=1,r=0;
+    // ejam pa vienai dienai uz priekšu sākot
+    // no 1582. gada 15. oktobra mūsu ērā, kas bija piektdiena,
+    // un, uzturot nedēļas dienu,
+    // ja nepieciešams, nomainu mēnesi, gadu
+    // līdz nonāku prasītajā datumā
+    int d=15,m=10,y=1582,r=5; // day, month, year, weekday
     while(y<gads||m<mēnesis||d<diena)
     {
-        int garais = 0;
-        if(ir_garais(y)) garais=1;
-        d++;
-        if(d>mēneši[m][garais])
-            d=1,m++;
-        if(m>12)
-            m=1,y++;
-        r++;
+        d++, r++;
+        int dm = dienas_mēnesī(m,y);
+        if(d>dm) d=1,m++;
+        if(m>12) m=1,y++;
     }
-    return (r%7)+1;
+    return ((r-1)%7)+1;
 }

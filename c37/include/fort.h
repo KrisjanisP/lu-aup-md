@@ -1,4 +1,4 @@
-/* 
+/*
 libfort
 
 MIT License

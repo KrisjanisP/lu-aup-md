@@ -18,19 +18,19 @@ ka attiecīgie simboli neparādīsies teksta literāļos.
 #include <fstream>
 #include <vector>
 
+#ifndef FILENAME
+#define FILENAME "test.cpp"
+#endif
+
 using namespace std;
 
 vector<string> extract_words(string line);
 
 int main() {
     ifstream file;
-    #ifdef FILENAME
     file.open(FILENAME);
-    #endif
     if (!file.is_open()) {
-        #ifdef FILENAME
         printf("Failu %s neizdevās atvērt.", FILENAME);
-        #endif
         return 1;
     }
 
@@ -46,11 +46,12 @@ int main() {
                 word_count[word]++;
         }
     }
+
     for(auto [word, count]: word_count) {
         cout<<word<<" "<<count<<endl;
     }
-    file.close();
 
+    file.close();
 }
 
 vector<string> extract_words(string line) {

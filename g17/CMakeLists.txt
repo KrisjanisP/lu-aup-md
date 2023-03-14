@@ -16,14 +16,14 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(
-    test_implemented
-    test_implemented.cpp
+    unit-testing 
+    unit-testing.cpp
 )
 
 target_link_libraries(
-    test_implemented
+    unit-testing
     GTest::gtest_main
 )
 
 include(GoogleTest)
-gtest_discover_tests(test_implemented)
+gtest_discover_tests(unit-testing)

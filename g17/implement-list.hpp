@@ -17,6 +17,7 @@ G17. Uzrakstīt funkciju, kas atrod saraksta otro lielāko elementu, ja tāds ek
 */
 #include <iostream>
 #include <cassert>
+#include <gtest/gtest.h>
 
 using namespace std;
 
@@ -111,6 +112,16 @@ public:
         cout<<node->value<<" ";
         printFrom(node->next);
     }
+    string toString(){
+        string res="";
+        Node* curr = head;
+        while(curr!=nullptr){
+            if(res.size()) res+=" ";
+            res+=to_string(curr->value);
+            curr = curr->next;
+        }
+        return res;
+    }
 };
 
 int main() {
@@ -126,4 +137,13 @@ int main() {
     cout<<"Saraksts pirms funkcijas izpildes: "; list.print();
     list.moveSecondLargestToEnd();
     cout<<"Saraksts pec funkcijas izpildes: "; list.print();
+}
+
+TEST(implemented,twoAscending){
+    List list;
+    list.pushBack(1);
+    list.pushBack(2);
+    EXPECT_EQ(list.toString(),"1 2");
+    list.moveSecondLargestToEnd();
+    EXPECT_EQ(list.toString(),"2 1");
 }

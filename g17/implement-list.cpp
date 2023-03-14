@@ -1,12 +1,16 @@
-#include <iostream>
 #include "implement-list.h"
 
 template<typename T>
 void List<T>::pushBack(T value){
     Node* newNode = new Node;
     newNode->value = value;
-    if(tail!=nullptr) tail->next = newNode;
-    tail = newNode;
+    pushBack(newNode);
+}
+
+template<typename T>
+void List<T>::pushBack(Node* node){
+    if(tail!=nullptr) tail->next = node;
+    tail = node;
     if(head==nullptr) head = tail;
 }
 
@@ -21,7 +25,7 @@ std::string List<T>::toString() {
     std::string res = "";
     Node* curr = head;
     while(curr!=nullptr) {
-        res += (res.size()?" ":"")+to_string(curr->value);
+        res += (res.size()?" ":"")+std::to_string(curr->value);
         curr = curr->next;
     }    
     return res;
@@ -57,5 +61,7 @@ void List<T>::moveSuccessorToEnd(Node* node){
     Node* successor;
     if(node==nullptr) successor = head;
     else successor = node->next;
-    pushBack(node);  
+    pushBack(successor);  
 }
+
+template struct List<int>;

@@ -1,1 +1,1 @@
-cmake -S . -B build && cmake --build build && cd build && ctest -V && cd ..
+cmake -S . -B build && cmake --build build --verbose && cd build && ctest -V && cd ..

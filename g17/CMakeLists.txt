@@ -15,16 +15,14 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-add_executable(
-    unit-testing 
-    unit-testing.cpp
-    implement-list.cpp
-)
-
 add_library(
     implement-list
     implement-list.cpp
-    implement-list.h
+)
+
+add_executable(
+    unit-testing 
+    unit-testing.cpp
 )
 
 target_link_libraries(

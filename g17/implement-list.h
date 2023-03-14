@@ -1,3 +1,6 @@
+#pragma once
+#include <iostream>
+
 template<typename T>
 struct List{
 public:
@@ -9,7 +12,8 @@ private:
         T value;
         Node* next;
     };
-    Node* head, tail;
+    Node *head, *tail;
+    void pushBack(Node*);
     Node* secondLargestPredecessor();
     void moveSuccessorToEnd(Node*);
 };

@@ -23,8 +23,12 @@ TEST(implemented,twoDescending){
     list.pushBack(2);
     list.pushBack(1);
     EXPECT_EQ(list.toString(), "2 1");
+    cout<<"hello"<<endl;
     list.moveSecondLargestToEnd();
+    cout<<"hello 2"<<endl;
+    list.print();
     EXPECT_EQ(list.toString(), "2 1");
+    cout<<"hello 3"<<endl;
 }
 
 TEST(implemented,twoEqual) {

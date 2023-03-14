@@ -1,23 +1,5 @@
-/*
-=== G17 =======================================
-
-Izveidot divas programmas valodā C++, kas strādā ar vērtību virkni divos dažādos veidos:
-  1) to realizējot kā vienvirziena saistīto sarakstu, izmantojot dinamiskas datu struktūras,
-  2) izmantojot STL::list konteineru.
-Abās realizācijās ir jāizveido prasītā specifiskā vērtību virknes apstrādes funkcija un jānodemonstrē tā darbībā,
-cita starpā parādot gan sākotnējās, gan rezultējošās vērtības.
-Abās programmās:  
-  a) jābūt iespējai ievadīt saraksta elementus (izveidot patvaļīgu sarakstu),
-  b) jāpielieto uzrakstītā funkcija sarakstam,  
-  c) jāizdrukā saraksts pēc funkcijas darbības.  
-  d) beigās jāiznīcina saraksts - korekti jāatbrīvo izdalītā atmiņa(lietojot delete vai clear).
-Sīkākas prasības sk. Laboratorijas darbu noteikumos.
-
-G17. Uzrakstīt funkciju, kas atrod saraksta otro lielāko elementu, ja tāds eksistē un pārvieto to uz saraksta beigām. Darbība jāveic, pārkabinot saites, nevis pārkopējot elementu vērtības.
-*/
 #include <iostream>
 #include <cassert>
-#include <gtest/gtest.h>
 
 using namespace std;
 
@@ -45,6 +27,7 @@ public:
         return pushBack(node);
     }
     Node* pushBack(Node* node) {
+        node->next = nullptr;
         if(tail==nullptr) head = node;
         else tail->next = node;
         tail = node;
@@ -78,22 +61,20 @@ public:
         assert(node!=nullptr);
         if(node->next == tail){
             tail = node;
-            tail->next = nullptr;
             return tail;
         }
         Node* result = node->next;
         if(node->next!=nullptr)
             node->next = result->next;
-        result->next = nullptr;
         return result;
     }
     Node* moveSecondLargestToEnd() {
+        if(head==nullptr||head==tail) return tail;
         Node* predecessor = secondLargestPredecessor();
         Node* secondLargest;
         if(predecessor==nullptr){
             Node* prevHead = head;
             head = prevHead->next;
-            prevHead->next = nullptr;
             secondLargest = prevHead;
         } else {
             secondLargest = removeSuccessor(predecessor);
@@ -123,27 +104,3 @@ public:
         return res;
     }
 };
-
-int main() {
-    cout<<"G17. Uzrakstit funkciju, kas atrod saraksta otro lielako elementu, ja tas eksiste un parvieto to uz saraksta beigam.\n";
-    cout<<"Ievadiet sarakstu, kuru norobežo nulle, piemēram, \"1 2 3 0\": ";
-    List list;
-    int x;
-    cin>>x;
-    while(x!=0){
-        list.pushBack(x);
-        cin>>x;
-    }
-    cout<<"Saraksts pirms funkcijas izpildes: "; list.print();
-    list.moveSecondLargestToEnd();
-    cout<<"Saraksts pec funkcijas izpildes: "; list.print();
-}
-
-TEST(implemented,twoAscending){
-    List list;
-    list.pushBack(1);
-    list.pushBack(2);
-    EXPECT_EQ(list.toString(),"1 2");
-    list.moveSecondLargestToEnd();
-    EXPECT_EQ(list.toString(),"2 1");
-}

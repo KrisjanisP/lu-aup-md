@@ -4,6 +4,7 @@
 template<typename T>
 struct List{
 public:
+    List();
     void pushBack(T);
     void moveSecondLargestToEnd();
     std::string toString();

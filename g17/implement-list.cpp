@@ -23,7 +23,6 @@ void List<T>::pushBack(Node* node){
 template<typename T>
 void List<T>::moveSecondLargestToEnd() {
     Node* predecessor = secondLargestPredecessor();
-    std::cout<<"predecessor: "<<predecessor<<" "<<((predecessor!=nullptr)?predecessor->value:-1)<<std::endl;
     moveSuccessorToEnd(predecessor);
 }
 

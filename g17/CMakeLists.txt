@@ -18,10 +18,18 @@ enable_testing()
 add_executable(
     unit-testing 
     unit-testing.cpp
+    implement-list.cpp
+)
+
+add_library(
+    implement-list
+    implement-list.cpp
+    implement-list.h
 )
 
 target_link_libraries(
     unit-testing
+    implement-list
     GTest::gtest_main
 )
 

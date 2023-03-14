@@ -3,15 +3,13 @@ struct List{
 public:
     void pushBack(T);
     void moveSecondLargestToEnd();
-    T removeSuccesor();
-    string toString();
+    std::string toString();
 private:
     struct Node {
         T value;
         Node* next;
     };
-    Node<T>* head;
-    Node<T>* tail;
+    Node* head, tail;
     Node* secondLargestPredecessor();
-    Node* moveSuccessorToEnd();
+    void moveSuccessorToEnd(Node*);
 };

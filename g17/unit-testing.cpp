@@ -1,8 +1,8 @@
 #include <gtest/gtest.h>
-#include "implement-list.hpp"
+#include "implement-list.h"
 
 TEST(implemented, one) {
-    List list;
+    List<int> list;
     list.pushBack(1);
     EXPECT_EQ(list.toString(), "1");
     list.moveSecondLargestToEnd();
@@ -10,7 +10,7 @@ TEST(implemented, one) {
 }
 
 TEST(implemented,twoAscending){
-    List list;
+    List<int> list;
     list.pushBack(1);
     list.pushBack(2);
     EXPECT_EQ(list.toString(),"1 2");
@@ -19,20 +19,16 @@ TEST(implemented,twoAscending){
 }
 
 TEST(implemented,twoDescending){
-    List list;
+    List<int> list;
     list.pushBack(2);
     list.pushBack(1);
     EXPECT_EQ(list.toString(), "2 1");
-    cout<<"hello"<<endl;
     list.moveSecondLargestToEnd();
-    cout<<"hello 2"<<endl;
-    list.print();
     EXPECT_EQ(list.toString(), "2 1");
-    cout<<"hello 3"<<endl;
 }
 
 TEST(implemented,twoEqual) {
-    List list;
+    List<int> list;
     list.pushBack(1);
     list.pushBack(1);
     EXPECT_EQ(list.toString(), "1 1");
@@ -41,7 +37,7 @@ TEST(implemented,twoEqual) {
 }
 
 TEST(implemented,threeAscending){
-    List list;
+    List<int> list;
     list.pushBack(1);
     list.pushBack(2);
     list.pushBack(3);
@@ -51,7 +47,7 @@ TEST(implemented,threeAscending){
 }
 
 TEST(implemented,threeDescending){
-    List list;
+    List<int> list;
     list.pushBack(3);
     list.pushBack(2);
     list.pushBack(1);
@@ -61,7 +57,7 @@ TEST(implemented,threeDescending){
 }
 
 TEST(implemented,threeEqual) {
-    List list;
+    List<int> list;
     list.pushBack(1);
     list.pushBack(1);
     list.pushBack(1);

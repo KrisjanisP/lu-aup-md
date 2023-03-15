@@ -1,1 +1,1 @@
-cmake -S . -B build && cmake --build build --verbose && cd build && ctest -V && cd ..
+rm -fr ./build && cmake -S . -B build && cmake --build build --verbose && cd build && ctest -V && cd ..

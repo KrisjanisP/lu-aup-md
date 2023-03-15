@@ -7,6 +7,15 @@ List<T>::List() {
 }
 
 template<typename T>
+List<T>::~List() {
+    while(head!=nullptr){
+        Node* next = head->next;
+        delete head;
+        head = next;
+    }
+}
+
+template<typename T>
 void List<T>::pushBack(T value){
     Node* newNode = new Node();
     newNode->value = value;

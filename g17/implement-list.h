@@ -5,6 +5,7 @@ template<typename T>
 struct List{
 public:
     List();
+    ~List();
     void pushBack(T);
     void moveSecondLargestToEnd();
     std::string toString();

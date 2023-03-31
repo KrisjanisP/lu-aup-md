@@ -12,4 +12,5 @@ Abās programmās:
   d. beigās jāiznīcina saraksts - korekti jāatbrīvo izdalītā atmiņa(lietojot delete vai clear).
 Sīkākas prasības sk. Laboratorijas darbu noteikumos.
 
-G17. Uzrakstīt funkciju, kas atrod saraksta otro lielāko elementu, ja tāds eksistē un pārvieto to uz saraksta beigām. Darbība jāveic, pārkabinot saites, nevis pārkopējot elementu vērtības.
+G17. Uzrakstīt funkciju, kas atrod saraksta otro lielāko elementu, ja tāds eksistē un pārvieto to uz saraksta beigām.
+Darbība jāveic, pārkabinot saites, nevis pārkopējot elementu vērtības.

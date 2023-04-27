@@ -68,8 +68,8 @@ public:
         Node* curr = head;
         bool head = true;
         while(curr!=nullptr){
-            if(!head) printf(" %d", curr->value);
-            else {printf("%d", curr->value); head=false;}
+            if(!head) printf(" %u", curr->value);
+            else {printf("%u", curr->value); head=false;}
             curr = curr->next;
         }
     }
@@ -106,10 +106,10 @@ int main() {
 
     ui input[10000][3];
     int n=0;
-    scanf("%d %d %d", &input[n][0], &input[n][1], &input[n][2]);
+    scanf("%u %u %u", &input[n][0], &input[n][1], &input[n][2]);
     while(input[n][0]!=0||input[n][1]!=0||input[n][2]!=0){
         n++;
-        scanf("%d %d %d", &input[n][0], &input[n][1], &input[n][2]);
+        scanf("%u %u %u", &input[n][0], &input[n][1], &input[n][2]);
     }
     
     for(int i=0;i<n;i++) {

@@ -58,7 +58,10 @@ vector<string> extract_words(string line) {
     vector<string> res;
     string current;
     for(int i=0;i<line.size();i++){
-        if(line[i]<'a'||line[i]>'z') {
+        bool letter = (line[i]>='a'&&line[i]<='z')||(line[i]>='A'&&line[i]<='Z');
+        bool digit = line[i]>='0'&&line[i]<='9';
+        bool underscore = line[i]=='_';
+        if((!letter)&&(!digit)&&(!underscore)) {
             if(current.size())
                 res.push_back(current);
             current = "";

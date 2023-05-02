@@ -3,7 +3,8 @@ using namespace std;
 
 int main() {
    int x = 10;
-   
+   int for1 = 4;
+   int for_1 = 5;
    if (x > 5) {
       for (int i = 0; i < x; i++) {
          while (i < 5) {

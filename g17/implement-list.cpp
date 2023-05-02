@@ -1,17 +1,32 @@
 #include "implement-list.h"
 
 template<typename T>
+List<T>::List() {
+    head=nullptr;
+    tail=nullptr;
+}
+
+template<typename T>
+List<T>::~List() {
+    while(head!=nullptr){
+        Node* next = head->next;
+        delete head;
+        head = next;
+    }
+}
+
+template<typename T>
 void List<T>::pushBack(T value){
-    Node* newNode = new Node;
+    Node* newNode = new Node();
     newNode->value = value;
     pushBack(newNode);
 }
 
 template<typename T>
 void List<T>::pushBack(Node* node){
-    if(tail!=nullptr) tail->next = node;
-    tail = node;
-    if(head==nullptr) head = tail;
+    if(head==nullptr) head=tail=node;
+    else tail->next=node,tail=node;
+    node->next = nullptr;
 }
 
 template<typename T>
@@ -39,7 +54,7 @@ typename List<T>::Node* List<T>::secondLargestPredecessor(){
     Node* current = head;
     Node* previous = nullptr;
     while(current!=nullptr){
-        if(mx[0]==nullptr || current->value > mx[0]->value) {
+        if(mx[0]==nullptr || current->value >= mx[0]->value) {
             mx[1] = mx[0];
             predecessors[1] = predecessors[0];
             mx[0] = current;
@@ -57,11 +72,18 @@ typename List<T>::Node* List<T>::secondLargestPredecessor(){
 }
 
 template<typename T>
-void List<T>::moveSuccessorToEnd(Node* node){
+void List<T>::moveSuccessorToEnd(Node* predecessor){
     Node* successor;
-    if(node==nullptr) successor = head;
-    else successor = node->next;
-    pushBack(successor);  
+    if(predecessor==nullptr){
+        successor = head;
+        if(successor!=nullptr) head = successor->next;
+    } else {
+        successor = predecessor->next;
+        predecessor->next = successor->next;
+        if(predecessor->next==nullptr) tail=predecessor;
+    }
+
+    if(successor!=nullptr) pushBack(successor);  
 }
 
 template struct List<int>;

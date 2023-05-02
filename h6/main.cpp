@@ -53,13 +53,17 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    map<int, pair<char,char>> sorted_pairs;
+    multimap<int, pair<char,char>, greater<int>> sorted_pairs;
     for (auto pair : pairs) {
-        sorted_pairs[pair.second] = pair.first;
+        sorted_pairs.insert({pair.second, pair.first});
     }
 
     for (auto pair : sorted_pairs) {
         cout << pair.second.first << pair.second.second << " " << pair.first << endl;
+    }
+
+    if(sorted_pairs.size() < 1) {
+        cout<<"File doesn't have letter pairs"<<endl;
     }
 
 }

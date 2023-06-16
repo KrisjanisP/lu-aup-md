@@ -1,6 +1,7 @@
 #include <iostream>
+#include "MyListSolution.h"
 #include "StlListSolution.hpp"
-#define ListTesting StlListSolution
+#define ListTesting MyListSolution
 using namespace std;
 
 int main()
@@ -13,11 +14,16 @@ int main()
     cin >> x;
     while (x != 0)
     {
-        list.push_back(x);
+        list.pushBack(x);
         cin >> x;
     }
 
     cout << "Saraksts pirms funkcijas izpildes: " << list.toString() << endl;
-    list.moveSecondLargestToEnd();
+    try {
+        list.moveSecondLargestToEnd();
+    } catch(const std::runtime_error &e) {
+        cout << e.what() << endl;
+        return 0;
+    }
     cout << "Saraksts pec funkcijas izpildes: " << list.toString() << endl;
 }

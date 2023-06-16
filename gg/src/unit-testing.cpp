@@ -12,7 +12,13 @@ TEST(implemented, one) {
     List<int> list;
     list.pushBack(1);
     EXPECT_EQ(list.toString(), "1");
-    list.moveSecondLargestToEnd();
+    const char* error = nullptr;
+    try {
+        list.moveSecondLargestToEnd();
+    } catch(const std::runtime_error &e) {
+        error = e.what();
+    }
+    EXPECT_STREQ(error, "List must have at least 2 elements");
     EXPECT_EQ(list.toString(), "1");
 }
 

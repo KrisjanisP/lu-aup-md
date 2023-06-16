@@ -8,6 +8,7 @@ public:
     ~MyListSolution();
     void pushBack(T);
     void moveSecondLargestToEnd();
+    int length();
     std::string toString();
 private:
     struct Node {

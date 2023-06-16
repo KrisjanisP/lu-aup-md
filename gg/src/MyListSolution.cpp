@@ -31,8 +31,22 @@ void MyListSolution<T>::pushBack(Node* node){
 
 template<typename T>
 void MyListSolution<T>::moveSecondLargestToEnd() {
+    if(this->length()<2) {
+        throw std::runtime_error("List must have at least 2 elements");
+    }
     Node* predecessor = secondLargestPredecessor();
     moveSuccessorToEnd(predecessor);
+}
+
+template<typename T>
+int MyListSolution<T>::length() {
+    Node* curr = head;
+    int result = 0;
+    while(curr!=nullptr) {
+        result++;
+        curr = curr->next;
+    }
+    return result;
 }
 
 template<typename T>

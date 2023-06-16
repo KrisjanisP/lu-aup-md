@@ -14,8 +14,8 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_library(
-    implement-list
-    implement-list.cpp
+    MyListSolution
+    MyListSolution.cpp
 )
 
 add_executable(
@@ -25,7 +25,7 @@ add_executable(
 
 target_link_libraries(
     unit-testing
-    implement-list
+    MyListSolution
     GTest::gtest_main
 )
 
